@@ -194,3 +194,12 @@ endif
 " Let us use undo
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
+
+"Pathogen lets us easy install other vim plugins
+call pathogen#infect()
+let g:syntastic_python_checker = 'pylint'
+let g:syntastic_check_on_open=1
+"let g:syntastic_mode_map = { 'mode': 'active',
+"                               \ 'active_filetypes': ['python','javascript','c','css','html','less','sh','xml','ruby', 'php'],
+"                               \ 'passive_filetypes': [] }
+
