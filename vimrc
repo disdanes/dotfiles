@@ -21,9 +21,31 @@ if has("syntax")
   syntax on
 endif
 
-" If using a dark background within the editing area and syntax highlighting
-" turn on this option as well
-"set background=dark
+" vundle configuration
+if has("win32")
+    let g:vim_home_path = "~/vimfiles"
+else
+    let g:vim_home_path = "~/.vim"
+endif
+
+execute "set rtp+=" . g:vim_home_path . "/bundle/vundle/"
+let g:vundle_default_git_proto = 'https'
+call vundle#rc(g:vim_home_path. "/bundle")
+
+"Bundles to install
+Bundles to install
+Bundle 'gmarik/vundle'
+
+" Syntax/filetype detection
+Bundle 'saltstack/salt-vim'
+
+" Helpful Plugins
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'itchyny/lightline.vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'walm/jshint.vim'
+
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
@@ -59,10 +81,18 @@ syntax enable                    " Turn on Syntax highlighting
 set et
 set sw=4                         " shift width is four, yes four
 set softtabstop=4                " four!
-set nosmarttab                   " fuck tabs!
+set nosmarttab                   " no tabs!
 "set autoindent                   " It's easier than doing it myself.
 "set smartindent                  " Don't be stupid about it.
 set expandtab                    " all tabs are actually spaces
+
+" Backup/Undo settings
+execute "set directory=" . g:vim_home_path . "/swap"
+execute "set backupdir=" . g:vim_home_path . "/backup"
+execute "set undodir=" . g:vim_home_path . "/undo"
+set backup
+set undofile
+set writebackup
 
 " ----------------------------------------------------------------------------
 " UI
@@ -79,7 +109,7 @@ set backspace=indent,eol,start   " Fixes a problem where I cannot delete text th
 set whichwrap=b,s,h,l,<,>,[,]    " Wrap on other things
 set report=0                     " Tell us about changes
 set nostartofline                " don't jump to the start of a line when scrolling
-" I'm in a goddamn hurry. I want anything up near esc to be esc so I can just mash the keyboard.
+" I'm in a hurry. I want anything up near esc to be esc so I can just mash the keyboard.
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
@@ -157,6 +187,7 @@ autocmd FileType python set softtabstop=4            " four!
 " ---------------------------------------------------------------------------
 filetype on                      " Turn on filetype
 filetype plugin on               " Turn on the filetype plugin so we can get specific
+filetype plugin indent on
 let g:pylint_onwrite=0           " I don't want pylint to change things for me automatically
 
 
@@ -195,11 +226,7 @@ endif
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
 
-"Pathogen lets us easy install other vim plugins
-call pathogen#infect()
-let g:syntastic_python_checker = 'pylint'
+"Configure syntastic to use pylint
+let g:syntastic_python_checker = 'pyflakes'
 let g:syntastic_check_on_open=1
-"let g:syntastic_mode_map = { 'mode': 'active',
-"                               \ 'active_filetypes': ['python','javascript','c','css','html','less','sh','xml','ruby', 'php'],
-"                               \ 'passive_filetypes': [] }
 
