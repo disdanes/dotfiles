@@ -1,4 +1,4 @@
-#!/bin/env bash
+!/bin/env bash
 
 name=${0##*/}
 
