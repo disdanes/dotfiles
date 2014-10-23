@@ -21,6 +21,7 @@ Bundle 'itchyny/lightline.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'walm/jshint.vim'
+Bundle 'groenewege/vim-less'
 
 "My Bundle
 Bundle 'disdanes/disdanes-vim'
