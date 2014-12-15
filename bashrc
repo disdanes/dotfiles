@@ -45,3 +45,6 @@ if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
 fi
 export HEROKU_PATH=/usr/local/heroku/bin
 export PATH=$PATH:$HEROKU_PATH
+
+#Setting up asp.net version manager
+source kvm.sh
