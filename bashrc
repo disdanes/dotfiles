@@ -19,6 +19,7 @@ alias svim="vim"
 alias suod="sudo"
 alias sduo="sudo"
 alias vm="mv"
+alias p5g="/Volumes/P5G"
 
 #Show me the current git branch on the command line
 function parse_git_branch () {
@@ -48,3 +49,6 @@ export PATH=$PATH:$HEROKU_PATH
 
 #Setting up asp.net version manager
 source kvm.sh
+
+# Homebrew before system
+export PATH="/usr/local/bin:$PATH"

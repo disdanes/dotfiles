@@ -20,10 +20,12 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'itchyny/lightline.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/syntastic'
-Bundle 'walm/jshint.vim'
+Bundle 'wookiehangover/jshint.vim'
 Bundle 'groenewege/vim-less'
 Bundle 'tpope/vim-dispatch'
 Bundle 'kien/ctrlp.vim'
+Bundle 'ervandew/supertab'
+Bundle 'Valloric/YouCompleteMe'
 Bundle 'nosami/Omnisharp'
 
 "My Bundle
